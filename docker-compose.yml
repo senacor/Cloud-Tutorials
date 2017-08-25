@@ -24,9 +24,7 @@ services:
         - demonet
 
   registry:
-    build:
-      context: ./registry
-    image: senacortutorials/registry
+    image: senacortutorials/registry:local
     container_name: registry
     working_dir: /
     ports:
@@ -35,9 +33,7 @@ services:
         - demonet
 
   config:
-    build:
-      context: ./config
-    image: senacortutorials/config
+    image: senacortutorials/config:local
     container_name: config
     working_dir: /
     ports:
@@ -47,9 +43,7 @@ services:
 
 
   demo:
-    build:
-      context: ./demo
-    image: senacortutorials/demo
+    image: senacortutorials/demo:local
     container_name: demo
     working_dir: /
     ports:
@@ -63,9 +57,7 @@ services:
         - demonet
 
   accounting:
-    build:
-      context: ./accounting
-    image: senacortutorials/accounting
+    image: senacortutorials/accounting:local
     container_name: accounting
     working_dir: /
     ports:
