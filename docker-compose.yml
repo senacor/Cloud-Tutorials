@@ -26,7 +26,6 @@ services:
   registry:
     image: senacortutorials/registry:local
     container_name: registry
-    working_dir: /
     ports:
       - "8761:8761"
     networks:
@@ -35,7 +34,6 @@ services:
   config:
     image: senacortutorials/config:local
     container_name: config
-    working_dir: /
     ports:
       - "8888:8888"
     networks:
@@ -45,7 +43,6 @@ services:
   demo:
     image: senacortutorials/demo:local
     container_name: demo
-    working_dir: /
     ports:
       - "8081:8081"
       - "7081:7081"
@@ -59,7 +56,6 @@ services:
   accounting:
     image: senacortutorials/accounting:local
     container_name: accounting
-    working_dir: /
     ports:
       - "8082:8082"
       - "7082:7082"
