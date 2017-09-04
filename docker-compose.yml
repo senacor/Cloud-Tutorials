@@ -24,7 +24,7 @@ services:
         - demonet
 
   registry:
-    image: senacortutorials/registry:local
+    image: senacortutorials/registry:stage-09
     container_name: registry
     ports:
       - "8761:8761"
@@ -32,7 +32,7 @@ services:
         - demonet
 
   config:
-    image: senacortutorials/config:local
+    image: senacortutorials/config:stage-09
     container_name: config
     ports:
       - "8888:8888"
@@ -41,7 +41,7 @@ services:
 
 
   demo:
-    image: senacortutorials/demo:local
+    image: senacortutorials/demo:stage-09
     container_name: demo
     ports:
       - "8081:8081"
@@ -54,7 +54,7 @@ services:
         - demonet
 
   accounting:
-    image: senacortutorials/accounting:local
+    image: senacortutorials/accounting:stage-09
     container_name: accounting
     ports:
       - "8082:8082"
