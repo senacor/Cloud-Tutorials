@@ -1,12 +1,13 @@
 version: '2'
 
 services:
-  demodb:
+
+  customerdb:
     image: mysql
-    container_name: demodb
+    container_name: customerdb
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
-      - MYSQL_DATABASE=demodb
+      - MYSQL_DATABASE=customerdb
     ports:
       - "3306:3306"
     networks:
@@ -24,12 +25,12 @@ services:
         - demonet
 
   registry:
-    image: senacortutorials/registry:stage-09
-    container_name: registry
-    ports:
-      - "8761:8761"
-    networks:
-        - demonet
+      image: senacortutorials/registry:stage-09
+      container_name: registry
+      ports:
+        - "8761:8761"
+      networks:
+          - demonet
 
   config:
     image: senacortutorials/config:stage-09
@@ -39,20 +40,19 @@ services:
     networks:
         - demonet
 
-
-  demo:
-    image: senacortutorials/demo:stage-09
-    container_name: demo
+  customer:
+    image: senacortutorials/customer:stage-09
+    container_name: customer
     ports:
       - "8081:8081"
       - "7081:7081"
     depends_on:
-        - demodb
+        - customerdb
         - registry
         - config
     networks:
         - demonet
-
+    
   accounting:
     image: senacortutorials/accounting:stage-09
     container_name: accounting
@@ -63,7 +63,7 @@ services:
         - accountingdb
         - registry
         - config
-        - demo
+        - customer
     networks:
         - demonet
 
